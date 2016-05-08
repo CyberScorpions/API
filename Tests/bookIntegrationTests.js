@@ -1,6 +1,6 @@
 var should = require('should'),
     request = require('supertest'),
-    app = ('../app.js'),
+    app = require('../app.js'),
     mongoose = require('mongoose'),
     // Book = require('../models/bookModel'),
     Book = mongoose.model('Book'),
@@ -8,7 +8,7 @@ var should = require('should'),
 
 describe('Book Crud Test', function () {
     it('Should allow a book to be posted and return a read and _id', function (done) {
-        var bookPost = {"title": "new book", "author": "Jon", genre: "Fiction"};
+        var bookPost = {title: 'new book', author: 'Jon', genre: 'Fiction'};
         agent.post('/REST/Books')
             .send(bookPost)
             .expect(200)
